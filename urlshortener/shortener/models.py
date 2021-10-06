@@ -6,4 +6,4 @@ class URL(models.Model):
     def __str__(self):
         return self.long
 
-    long = models.CharField(max_length=200)
+    long = CharField(max_length=200)
