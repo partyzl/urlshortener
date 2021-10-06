@@ -12,18 +12,19 @@
       integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
     <title>URLShortener</title>
   </head>
   <body class="container">
-    <section>
-      <h1>Shorten Your URL's here!</h1>
-      <form method="POST">
-        {% csrf_token %} {{form}}
-        <input type="submit" value="Shorten It!" class="btn btn-primary" />
-      </form>
-    </section>
-    <section>
-      <a class="" href="{{shortened}}">{{shortened_url}}</a>
+    <section class="whole-body">
+      <section>
+        <h1>Shorten Your URL's here!</h1>
+        <form method="POST">
+          {% csrf_token %} {{form}}
+          <input type="submit" value="Shorten It!" class="btn btn-primary" />
+        </form>
+        <a target="_blank" class="" href="{{shortened}}">{{shortened}}</a>
+      </section>
     </section>
     <!-- JavaScript Bundle with Popper -->
     <script

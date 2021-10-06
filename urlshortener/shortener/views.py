@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.urls import reverse
+from django.shortcuts import redirect, render
+from django.http import HttpResponseRedirect
 from .forms import ShortenerForm
+from .models import URL
 
 # Create your views here.
 def index(request):
@@ -12,14 +15,20 @@ def index(request):
                 "form": shortener,
                 "shortened": f"http://localhost:8000/{url.id}",
             }
+            return HttpResponseRedirect(reverse("index"), context)
             return render(
                 request, "index.html", context
             )  # Add the correct model stuff here
     else:
         shortener = ShortenerForm()
-        context = {"form": shortener, "shortened": "This aint a valid ting"}
+        recent_url = URL.objects.all().last()
+        context = {
+            "form": shortener,
+            "shortened": f"http://localhost:8000/{recent_url.id}",
+        }
         return render(request, "index.html", context)
 
 
-"""Need to add a way to print url to page here
-"""
+def redirect_views(request, id):
+    long_url = URL.objects.get(pk=id).long
+    return redirect(long_url)
