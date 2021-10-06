@@ -16,10 +16,12 @@ def index(request):
             return render(
                 request, "index.html", context
             )  # Add the correct model stuff here
-    shortener = ShortenerForm()
-    context = {"form": shortener, "shortened": ""}
-    return render(request, "index.html", context)
+    else:
+        print("HEllo")
+        # shortener = ShortenerForm()
+        # context = {"form": shortener, "shortened": ""}
+        # return render(request, "index.html", context)
 
 
-"""Need to add a way to save url here, and an else to redirect if invalid url
+"""Need to add a way to print url to page here
 """
