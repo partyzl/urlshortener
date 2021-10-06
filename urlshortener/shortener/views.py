@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .forms import ShortenerForm
+from .models import URL
 
 # Create your views here.
 def index(request):
@@ -17,9 +18,10 @@ def index(request):
             )  # Add the correct model stuff here
     else:
         shortener = ShortenerForm()
-        context = {"form": shortener, "shortened": "This aint a valid ting"}
+        context = {"form": shortener, "shortened": ""}
         return render(request, "index.html", context)
 
 
-"""Need to add a way to print url to page here
-"""
+def redirect_views(request, id):
+    long_url = URL.objects.get(pk=id).long
+    return redirect(long_url)
