@@ -1,36 +1,41 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- CSS only -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="{% static 'styles.css' %}" />
-    <title>URLShortener</title>
-  </head>
-  <body class="container">
-    <section class="whole-body">
-      <section>
-        <h1>Shorten Your URL's here!</h1>
-        <form method="POST">
-          {% csrf_token %} {{form}}
-          <input type="submit" value="Shorten It!" class="btn btn-primary" />
-        </form>
-        <a target="_blank" class="" href="{{shortened}}">{{shortened}}</a>
-      </section>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous" />
+  <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  <title>URLShortener</title>
+</head>
+
+<body class="container">
+  <section class="whole-body">
+    <section>
+      {% if uid %}
+      <h1>Here's your URL!</h1>
+      {% else %}
+      <h1>Shorten Your URL's here!</h1>
+      {% endif %}
+      <form method="POST">
+        {% csrf_token %} {{form}}
+        {% if uid %}
+        <p></p>
+        {% else %}
+        <input type="submit" value="Shorten It!" class="btn btn-primary" />
+        {% endif %}
+      </form>
+      <a target="" class="" href="{{shortened}}">{{shortened}}</a>
     </section>
-    <!-- JavaScript Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  </section>
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
