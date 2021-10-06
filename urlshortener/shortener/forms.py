@@ -1,6 +1,9 @@
 from django import forms
-from .models import modelName
+from . import models
 
 
 class ShortenerForm(forms.ModelForm):
-    new_url = forms.CharField(label="Enter URL Here", max_length=200)
+
+    class Meta:
+        model = models.URL
+        fields = ['long']
