@@ -1,5 +1,5 @@
 from django import forms
-from .models import modelName
+from .models import URL
 
 
 class ShortenerForm(forms.ModelForm):
