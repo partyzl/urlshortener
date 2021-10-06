@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from . import models
 from .forms import ShortenerForm
 
 # Create your views here.
@@ -17,10 +16,9 @@ def index(request):
                 request, "index.html", context
             )  # Add the correct model stuff here
     else:
-        print("HEllo")
-        # shortener = ShortenerForm()
-        # context = {"form": shortener, "shortened": ""}
-        # return render(request, "index.html", context)
+        shortener = ShortenerForm()
+        context = {"form": shortener, "shortened": "This aint a valid ting"}
+        return render(request, "index.html", context)
 
 
 """Need to add a way to print url to page here
