@@ -17,11 +17,6 @@ python manage.py runserver
 ```
 ---
 ## Changelog
-- Fixed templating
-- Added api fixture
-- Added blocks
-- Added error handling
-- Added post method
 
 ---
 ## Bugs
