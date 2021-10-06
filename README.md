@@ -1,5 +1,5 @@
 # LAP 4 URL Shortener App
-Made by [Owen](https://github.com/OGWJ), [Parth](https://github.com/partyzl), and [Kenneth](https://github.com/KennethCWY)
+### Made by [Owen](https://github.com/OGWJ), [Parth](https://github.com/partyzl), and [Kenneth](https://github.com/KennethCWY)
 ---
 ## How to run the App!
 - Clone this repo down to your machine
